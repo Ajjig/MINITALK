@@ -22,8 +22,10 @@ void	signal_reciver(int sig, siginfo_t *sa, void *unused)
 		pid_client = sa->si_pid;
 	}
 	c = c << 1 | (sig - 30);
-	if (++bit != 8)
+	if (++bit < 8)
 		return ;
+	if (c == 0)
+		kill(sa->si_pid, SIGUSR1);
 	write(1, &c, 1);
 	bit = 0;
 	c = 0;
