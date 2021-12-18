@@ -1,5 +1,31 @@
 #include "minitalk.h"
 
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	nb;
+	int	sign;
+
+	sign = 1;
+	i = 0;
+	nb = 0;
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = (str[i] - '0') + (nb * 10);
+		i++;
+	}
+	return (nb * sign);
+}
+
 void	signal_recived(int sig)
 {
 	if (sig == SIGUSR1)
@@ -30,7 +56,7 @@ int	main(int ac, char **av)
 	signal(SIGUSR1, &signal_recived);
 	if (ac == 3)
 	{
-		pid = atoi(av[1]);
+		pid = ft_atoi(av[1]);
 		while(*av[2])
 			send_bits(*av[2]++, pid);
 		send_bits(*av[2]++, pid);
