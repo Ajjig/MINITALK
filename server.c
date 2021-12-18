@@ -40,5 +40,7 @@ int	main()
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	printf("%d\n", getpid());
-	while(1);
+	while(1)
+		pause();
+		printf("hhhhhh\n");
 }

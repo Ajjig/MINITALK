@@ -3,7 +3,7 @@
 void	signal_recived(int sig)
 {
 	if (sig == SIGUSR1)
-		write(1, "\x1b[32mSignal Recived\n", 19);
+		write(1, "\x1b[32mSignal Recived\n", 20);
 }
 
 void	send_bits(int c, int pid)
