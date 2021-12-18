@@ -2,6 +2,13 @@
 
 int	pid_client = 0;
 
+void	ft_putnbr(int nb)
+{
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	write(1, &"0123456789"[nb % 10], 1);
+}
+
 void	ft_putstr_fd(char *str, int fd)
 {
 	if (str)
@@ -39,8 +46,8 @@ int	main()
 	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
-	printf("%d\n", getpid());
+	ft_putnbr(getpid());
+	write(1, "\n", 1);
 	while(1)
 		pause();
-		printf("hhhhhh\n");
 }
