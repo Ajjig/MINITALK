@@ -22,5 +22,7 @@ $(SNAME): $(SSRC_OBJ)
 clean:
 	@rm -rf $(SSRC_OBJ) $(CSRC_OBJ)
 
-fclean:
+fclean: clean
 	@rm -rf $(CNAME) $(SNAME)
+
+re: fclean all
