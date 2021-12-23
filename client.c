@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: majjig <majjig@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/23 13:13:03 by majjig            #+#    #+#             */
+/*   Updated: 2021/12/23 13:13:04 by majjig           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 int	ft_atoi(const char *str)
@@ -62,5 +74,5 @@ int	main(int ac, char **av)
 		send_bits(*av[2]++, pid);
 	}
 	else
-		write(2, "Error\nargument error\n", 21);
+		write(2, "Error\n\targument error\n", 22);
 }
