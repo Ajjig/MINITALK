@@ -6,13 +6,11 @@
 /*   By: majjig <majjig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 13:13:21 by majjig            #+#    #+#             */
-/*   Updated: 2021/12/23 13:13:22 by majjig           ###   ########.fr       */
+/*   Updated: 2021/12/23 13:28:10 by majjig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-int	pid_client = 0;
 
 void	ft_putnbr(int nb)
 {
@@ -32,6 +30,7 @@ void	signal_reciver(int sig, siginfo_t *sa, void *unused)
 {
 	static int	bit;
 	static char	c;
+	static int	pid_client = 0;
 
 	unused += 0;
 	if (sa->si_pid != pid_client)
@@ -50,7 +49,7 @@ void	signal_reciver(int sig, siginfo_t *sa, void *unused)
 	c = 0;
 }
 
-int	main()
+int	main(void)
 {
 	struct sigaction	sa;
 
@@ -60,6 +59,6 @@ int	main()
 	sigaction(SIGUSR2, &sa, NULL);
 	ft_putnbr(getpid());
 	write(1, "\n", 1);
-	while(1)
+	while (1)
 		pause();
 }

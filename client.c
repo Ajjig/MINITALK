@@ -6,7 +6,7 @@
 /*   By: majjig <majjig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 13:13:03 by majjig            #+#    #+#             */
-/*   Updated: 2021/12/23 13:13:04 by majjig           ###   ########.fr       */
+/*   Updated: 2021/12/23 13:14:38 by majjig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int ac, char **av)
 	if (ac == 3)
 	{
 		pid = ft_atoi(av[1]);
-		while(*av[2])
+		while (*av[2])
 			send_bits(*av[2]++, pid);
 		send_bits(*av[2]++, pid);
 	}
