@@ -69,6 +69,8 @@ int	main(int ac, char **av)
 	if (ac == 3)
 	{
 		pid = ft_atoi(av[1]);
+		if (pid <= 0)
+			return (1);
 		while (*av[2])
 			send_bits(*av[2]++, pid);
 		send_bits(*av[2]++, pid);
